@@ -1,0 +1,29 @@
+name: Prevent scheduled workflow from being automatically disabled
+
+on:
+  schedule:
+    - cron: '45 14 4,19 * *'
+  workflow_dispatch:
+
+concurrency:
+  group: keepalive
+  cancel-in-progress: false
+
+jobs:
+  keepalive:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: keep-active
+
+      - name: Commit and push empty commit
+        env:
+          NAME: 'github-actions[bot]'
+          EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
+        run: |
+          git -c user.name="$NAME" -c user.email="$EMAIL" commit --allow-empty -m 'Automated commit'
+          git push
