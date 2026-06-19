@@ -4,7 +4,7 @@ import os
 import requests
 from github import Github
 from github.GithubException import UnknownObjectException
-import google.generativeai as genai
+from google import genai
 import time
 from datetime import datetime, timedelta
 
@@ -69,7 +69,7 @@ def filter_commit(commit):
     return True
 
 
-def analyze_commits_in_bulk(model, commits, report_language="Japanese"):
+def analyze_commits_in_bulk(client, model_name, commits, report_language="Japanese"):
     """
     Analyzes a list of commits in bulk with the Gemini API and returns a formatted Markdown report.
     """
@@ -109,7 +109,7 @@ Files Changed:
         # print(f"\n--- BULK PROMPT ---\n{prompt}\n--------------------")
         # --- End of Detailed Logging ---
 
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(model=model_name, contents=prompt)
         
         # --- Start of Detailed Logging ---
         print(f"--- BULK RESPONSE ---\n{response.text}\n--------------------\n")
@@ -323,10 +323,9 @@ def main():
         github_client = Github(pat)
         print("GitHub client initialized.")
         
-        gemini_model_name = os.environ.get("GEMINI_MODEL", "gemini-2.5-pro")
+        gemini_model_name = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash")
         print(f"Configuring Gemini API with model: {gemini_model_name}...")
-        genai.configure(api_key=gemini_api_key)
-        ai_model = genai.GenerativeModel(gemini_model_name)
+        ai_client = genai.Client(api_key=gemini_api_key)
         print("Gemini API configured.")
     except Exception as e:
         print(f"FATAL: Failed to initialize APIs: {e}")
@@ -382,7 +381,7 @@ def main():
     print("\n--- 5. Generating and Sending Report ---")
     report_language = os.environ.get("REPORT_LANGUAGE", "Japanese")
     print(f"Report language set to: {report_language}")
-    report_body = analyze_commits_in_bulk(ai_model, important_commits, report_language)
+    report_body = analyze_commits_in_bulk(ai_client, gemini_model_name, important_commits, report_language)
     
     if report_body:
         report_title = f"Unreal Engine Daily Report - {time.strftime('%Y-%m-%d')}"
