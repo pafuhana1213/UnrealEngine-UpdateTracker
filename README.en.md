@@ -87,7 +87,7 @@ For the report destination (`DISCUSSION_REPO` or a Slack channel), we strongly r
     -   Report Language: The language for the report (e.g., `English`, `Japanese`). Default: `Japanese`.
     -   Commit Scan Limit: The number of recent commits to scan for manual runs. Default: the last 24 hours.
     -   Discussion Category: The Discussion category to post the report to. Default: `Daily Reports`.
-    -   Gemini Model: The AI model used for analysis. Default: `gemini-2.5-pro`.
+    -   Gemini Model: The AI model used for analysis. Default: `gemini-3.5-flash`.
     -   Slack Webhook URL: A temporary Slack Webhook URL. Overrides the secret.
     -   Slack Channel: A temporary Slack channel name. Overrides the secret.
     -   Discord Webhook URL: A temporary Discord Webhook URL. Overrides the secret.
@@ -96,7 +96,7 @@ For the report destination (`DISCUSSION_REPO` or a Slack channel), we strongly r
     You can change the defaults for scheduled and manual runs in the repository's Variables. Go to `Settings` > `Secrets and variables` > `Actions`, and set the following in the `Variables` tab.
     -   `REPORT_LANGUAGE`: The default report language (e.g., `English`).
     -   `DISCUSSION_CATEGORY`: The default category to post to (e.g., `Daily Reports`).
-    -   `GEMINI_MODEL`: The default AI model to use (e.g., `gemini-2.5-pro`).
+    -   `GEMINI_MODEL`: The default AI model to use. Default: `gemini-3.5-flash`. For higher quality, switch to a model such as `gemini-3.1-pro`.
     -   `UE_BRANCH`: The branch to monitor (e.g., `release`). Default: `ue5-main`.
 
 ## Customization

@@ -87,7 +87,7 @@ Unreal Engineの更新履歴は、Epic Gamesのライセンス契約に基づき
     -   Report Language: レポートを出力する言語を入力します（例: `Japanese`, `English`）。デフォルトは `Japanese`。
     -   Commit Scan Limit: 手動実行時にスキャンする最新コミット数。デフォルトは過去24時間。
     -   Discussion Category: レポートを投稿するDiscussionカテゴリ名。デフォルトは `Daily Reports`。
-    -   Gemini Model: 解析に使用するAIモデル名。デフォルトは `gemini-2.5-pro`。
+    -   Gemini Model: 解析に使用するAIモデル名。デフォルトは `gemini-3.5-flash`。
     -   Slack Webhook URL: 一時的に使用するSlack Webhook URL。Secretの値を上書きします。
     -   Slack Channel: 一時的に使用するSlackチャンネル名。Secretの値を上書きします。
     -   Discord Webhook URL: 一時的に使用するDiscord Webhook URL。Secretの値を上書きします。
@@ -96,7 +96,7 @@ Unreal Engineの更新履歴は、Epic Gamesのライセンス契約に基づき
     スケジュール実行・手動実行のデフォルト値は、リポジトリの Variables で変更できます。`Settings` > `Secrets and variables` > `Actions` の `Variables` タブで、以下を設定します。
     -   `REPORT_LANGUAGE`: デフォルトのレポート言語（例: `English`）。
     -   `DISCUSSION_CATEGORY`: デフォルトの投稿先カテゴリ名（例: `Daily Reports`）。
-    -   `GEMINI_MODEL`: デフォルトで使用するAIモデル（例: `gemini-2.5-pro`）。
+    -   `GEMINI_MODEL`: デフォルトで使用するAIモデル。デフォルトは `gemini-3.5-flash`。より高品質を求める場合は `gemini-3.1-pro` などに変更できます。
     -   `UE_BRANCH`: 監視対象のブランチ名（例: `release`）。デフォルトは `ue5-main`。
 
 ## カスタマイズ

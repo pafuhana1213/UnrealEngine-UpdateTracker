@@ -1,8 +1,8 @@
 # For GitHub API
 PyGithub
 
-# For Google Gemini API
-google-generativeai
+# For Google Gemini API (unified Google GenAI SDK; replaces the deprecated google-generativeai)
+google-genai
 
 # For local development (reading .env files)
 python-dotenv
