@@ -10,15 +10,6 @@
 
 注意：この画像はレポートの一例で、内容はすべてダミーです。Unreal Engineで実際に行われた更新ではありません。
 
-## 主な機能
-
-- 自動更新チェック: GitHub Actionsで、毎日決まった時刻（日本時間 午前8時 / UTC 23:00）または手動で、UEリポジトリの最新コミットを取得します。
-- 複数ブランチの並行追跡: 既定で `ue5-main` と `ue6-main` を同時に追跡します（`UE_BRANCHES` で変更可能）。
-- AIによる要約: Gemini APIがコミット内容を分析し、「新機能」「仕様変更」などのカテゴリに分類して要約します。
-- Discussionへの投稿: 生成したレポートを、リポジトリのGitHub Discussionsに「Unreal Engine Daily Report」として投稿します。追跡している各ブランチ（UE5 / UE6 など）は、1つのレポート内に見出しで分けて併記されます。
-- Slack通知: レポートを指定のSlackチャンネルにも同時に通知できます。
-- Discord通知: レポートを指定のDiscordチャンネルにも同時に通知できます。
-
 ## 最新レポートを購読する
 
 このツールを自分でセットアップしなくても、生成済みのレポートを購読できます。
@@ -27,6 +18,15 @@
 [**UnrealEngine-UpdateTrackerReport リポジトリを購読する**](https://github.com/pafuhana1213/UnrealEngine-UpdateTrackerReport)
 
 注意: このレポートリポジトリはプライベートのため、閲覧には[Unreal Engineのソースコードリポジトリへのアクセスが許可されたGitHubアカウント](https://www.unrealengine.com/ja/ue-on-github)が必要です。
+
+## 主な機能
+
+- 自動更新チェック: GitHub Actionsで、毎日決まった時刻（日本時間 午前8時 / UTC 23:00）または手動で、UEリポジトリの最新コミットを取得します。
+- 複数ブランチの並行追跡: 既定で `ue5-main` と `ue6-main` を同時に追跡します（`UE_BRANCHES` で変更可能）。
+- AIによる要約: Gemini APIがコミット内容を分析し、「新機能」「仕様変更」などのカテゴリに分類して要約します。
+- Discussionへの投稿: 生成したレポートを、リポジトリのGitHub Discussionsに「Unreal Engine Daily Report」として投稿します。追跡している各ブランチ（UE5 / UE6 など）は、1つのレポート内に見出しで分けて併記されます。
+- Slack通知: レポートを指定のSlackチャンネルにも同時に通知できます。
+- Discord通知: レポートを指定のDiscordチャンネルにも同時に通知できます。
 
 ## 開発を支援する
 
